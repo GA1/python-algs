@@ -15,4 +15,18 @@ class MyTest(unittest.TestCase):
         self.assertEqual(re.sub('ab', 'c', 'babab'), 'bcc')
 
     def test_replace_05(self):
-        self.assertEqual(re.sub('ab', 'c', 'babab'), 'bcc')
+        self.assertEqual(re.sub(',', ', ', 'You,and Me.'), 'You, and Me.')
+
+    def test_replace_06(self):
+        self.assertEqual(re.sub(',(?!\s)', ', ', 'You,me, him'), 'You, me, him')
+
+    def test_replace_07(self):
+        print(textFix('You.You.') + "!")
+        self.assertEqual(re.sub('\.(?!\s)', '. ', 'You.You.'), 'You. You. ')
+
+
+def textFix(text):
+    result = re.sub('\.(?!\s)', '. ', text)
+    if (result[len(result) - 1]) == ' ':
+        return result[:-1]
+    return result
