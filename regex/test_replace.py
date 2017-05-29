@@ -23,4 +23,11 @@ class MyTest(unittest.TestCase):
     def test_replace_07(self):
         self.assertEqual(re.sub('\.(?=\S)', '. ', 'You.You.'), 'You. You.')
 
+    def test_replace_08(self):
+        self.assertEqual(re.sub('.', 'A', '..'), 'AA')
+        self.assertEqual(re.sub('!', 'A', '!!'), 'AA')
+        self.assertEqual(re.sub('\?', 'A', '??'), 'AA')
+        self.assertEqual(re.sub('[.!\?]', 'A', '!.?'), 'AAA')
+
+
 
