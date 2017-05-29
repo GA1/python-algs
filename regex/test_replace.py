@@ -29,5 +29,10 @@ class MyTest(unittest.TestCase):
         self.assertEqual(re.sub('\?', 'A', '??'), 'AA')
         self.assertEqual(re.sub('[.!\?]', 'A', '!.?'), 'AAA')
 
+    def test_split_01(self):
+        s = """You!Are you Tom? I am Danny."""
+        self.assertEqual(['You!', 'Are you Tom?', ' I am Danny.'], re.findall('.*?[.!\?]', s))
+        
+
 
 
