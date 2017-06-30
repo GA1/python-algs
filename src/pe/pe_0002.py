@@ -9,9 +9,18 @@
 
 def solve(n):
     result = 0
-    for i in range(1, n):
-        if i % 3 == 0 or i % 5 == 0:
-            result += i
+    before = 1
+    temp = 2
+    if before < n and before % 2 == 0:
+        result += before
+    if temp < n and temp % 2 == 0:
+        result += temp
+    while temp < n:
+        after = temp + before
+        before = temp
+        temp = after
+        if temp % 2 == 0:
+            result += temp
     return result
 
 
