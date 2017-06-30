@@ -9,6 +9,10 @@ class MyTest(unittest.TestCase):
         self.assertEqual(0, solve(2))
         self.assertEqual(2, solve(3))
         self.assertEqual(2, solve(4))
+        self.assertEqual(2, solve(8))
+
+    def test_002(self):
+        self.assertEqual(10, solve(9))
 
 
 

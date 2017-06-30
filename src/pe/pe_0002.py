@@ -15,12 +15,13 @@ def solve(n):
         result += before
     if temp < n and temp % 2 == 0:
         result += temp
-    while temp < n:
+    after = temp + before
+    while after < n:
+        if after % 2 == 0:
+            result += after
         after = temp + before
         before = temp
         temp = after
-        if temp % 2 == 0:
-            result += temp
     return result
 
 
