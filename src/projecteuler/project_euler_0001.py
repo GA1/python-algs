@@ -5,9 +5,11 @@
 def solve(N):
 
     sum = 0
-    # for range(1, N):
-    #     if
-    return 23
+    for i in range(1, N):
+        if i % 3 == 0 or  i % 5 == 0:
+            sum += i
+    return sum
 
 
-# if name == __
+if __name__ == "__main__":
+    print(solve(1000))
