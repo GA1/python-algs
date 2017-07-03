@@ -15,6 +15,17 @@ class MyTest(unittest.TestCase):
         q.enqueue(3)
         self.assertFalse(q.is_empty())
 
+    def test_with_one_item_is_not_empty(self):
+        q = Queue()
+        q.enqueue(3)
+        q.dequeue()
+        self.assertTrue(q.is_empty())
+
+    def test_queue_and_dequeue(self):
+        q = Queue()
+        q.enqueue(3)
+        self.assertEquals(3, q.dequeue())
+
 
 
 
