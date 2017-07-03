@@ -9,4 +9,6 @@ class Queue():
         self.items.append(item)
 
     def dequeue(self):
+        if self.is_empty():
+            raise ValueError('Queue: dequeue() on empty queue')
         return self.items.pop(0)

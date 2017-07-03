@@ -1,7 +1,6 @@
 import unittest
 
 from src.datasctructures.queue import Queue
-from src.pe.pe_0001 import solve
 
 
 class MyTest(unittest.TestCase):
@@ -25,6 +24,17 @@ class MyTest(unittest.TestCase):
         q = Queue()
         q.enqueue(3)
         self.assertEquals(3, q.dequeue())
+
+    def test_queue_and_dequeue(self):
+        q = Queue()
+        q.enqueue(3)
+        q.enqueue(5)
+        self.assertEquals(3, q.dequeue())
+        self.assertEquals(5, q.dequeue())
+
+    def test_exception_when_dequeue_empty_queue(self):
+        q = Queue()
+        self.assertRaises(ValueError, q.dequeue)
 
 
 
