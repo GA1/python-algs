@@ -1,14 +1,39 @@
-class Queue():
+class Queue:
     def __init__(self):
-        self.items = []
+        self.first = None
+        self.last = None
+        self.n = 0
 
     def is_empty(self):
-        return len(self.items) == 0
+        return self.first is None
+
+    def size(self):
+        return self.n
+
+    def peek(self):
+        if self.is_empty():
+            raise ValueError('Queue: peek() on empty queue')
+        return self.first['item']
 
     def enqueue(self, item):
-        self.items.append(item)
+        old_last = self.last
+        new_node = {
+            'item': item,
+            'next': None
+        }
+        if self.is_empty():
+            self.first = new_node
+            self.last = new_node
+        else:
+            old_last['next'] = new_node
+        self.n = self.n + 1
 
     def dequeue(self):
         if self.is_empty():
             raise ValueError('Queue: dequeue() on empty queue')
-        return self.items.pop(0)
+        item = self.first['item']
+        self.first = self.first['next']
+        self.n = self.n - 1
+        if self.is_empty():
+            self.last = None
+        return item
