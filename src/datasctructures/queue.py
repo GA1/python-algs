@@ -4,6 +4,15 @@ class Queue:
         self.last = None
         self.n = 0
 
+    def __str__(self):
+        nodes = []
+        curr = self.first
+        while curr:
+            nodes.append(curr)
+            curr = curr['next']
+        return str(nodes)
+        # return '[' + ']'
+
     def is_empty(self):
         return self.first is None
 
@@ -26,6 +35,7 @@ class Queue:
             self.last = new_node
         else:
             old_last['next'] = new_node
+            self.last = new_node
         self.n = self.n + 1
 
     def dequeue(self):
@@ -37,3 +47,4 @@ class Queue:
         if self.is_empty():
             self.last = None
         return item
+
