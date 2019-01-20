@@ -11,7 +11,6 @@ class Queue:
             nodes.append(curr)
             curr = curr['next']
         return str(nodes)
-        # return '[' + ']'
 
     def is_empty(self):
         return self.first is None
